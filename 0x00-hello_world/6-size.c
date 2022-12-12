@@ -1,10 +1,8 @@
 #include <stdio.h>
 /**
- * main - print out sizes of data types in c
- *
- * Return: 0
+ * main - Entry
+ * Return: Always 0
 */
-
 int main(void)
 {
 
