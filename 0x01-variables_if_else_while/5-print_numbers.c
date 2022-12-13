@@ -10,9 +10,10 @@ int main(void)
 
 	while (digit <= 9)
 	{
-		print("%i", digit);
+		printf("%i", digit);
 		++digit;
 
 	}
 	print("\n");
 	return (0);
+}
