@@ -14,6 +14,6 @@ int main(void)
 		++digit;
 
 	}
-	print("\n");
+	printf("\n");
 	return (0);
 }
