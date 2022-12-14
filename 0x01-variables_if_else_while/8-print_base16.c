@@ -10,7 +10,7 @@ int main(void)
 
 	while (digit <= 102)
 	{
-		putchar(digits);
+		putchar(digit);
 
 		if (digit == 57)
 			digit += 39;
