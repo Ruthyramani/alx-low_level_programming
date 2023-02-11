@@ -1,69 +1,34 @@
 #include "main.h"
+
 /**
-  * binary_to_uint - converts a binary number to an unsigned int
-  * @b: binary number
-  * Return: the converted number or 0 if it fails
-  */
+ * binary_to_uint- convert binary to unsigned int
+ * @b: binary
+ * Return: unsigned int
+ */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int uint, place;
-	int n;
 
-	if (!b)
-		return (0);
+	int night = 0, j;
+	unsigned int number = 0, non_binary = 0;
 
-	for (n = 0; b[n]; n++)
-		;
-	n--;
-	for (place = 1, uint = 0; n >= 0; n--)
+	if (b == NULL)
+		return (non_binary);
+
+	while (b[night] != '\0')
+		night++;
+	night -= 1;
+	j = 0;
+	while (b[j])
 	{
-		if (b[n] == '0')
-		{
-			place *= 2;
-			continue;
-		}
-		else if (b[n] == '1')
-		{
-			uint += place;
-			place *= 2;
-			continue;
-		}
-		return (0);
-	}
-	return (uint);
-}
-#include "main.h"
-/**
-  * binary_to_uint - converts a binary number to an unsigned int
-  * @b: binary number
-  * Return: the converted number or 0 if it fails
-  */
-unsigned int binary_to_uint(const char *b)
-{
-	unsigned int uint, place;
-	int n;
+		if ((b[j] != '0') && (b[j] != '1'))/*&& logical AND operator*/
+			return (non_binary);
 
-	if (!b)
-		return (0);
+		if (b[j] == '1')
+			number += (1 * (1 << night));/*<< bitwise left shift operator*/
+		j++;
 
-	for (n = 0; b[n]; n++)
-		;
-	n--;
-	for (place = 1, uint = 0; n >= 0; n--)
-	{
-		if (b[n] == '0')
-		{
-			place *= 2;
-			continue;
-		}
-		else if (b[n] == '1')
-		{
-			uint += place;
-			place *= 2;
-			continue;
-		}
-		return (0);
+		night--;
 	}
-	return (uint);
+	return (number);
 }
 
