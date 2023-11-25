@@ -1,20 +1,19 @@
 #include "list.h"
+#include <stdlib.h>
 
 /**
  * pop_listint - deletes the headof the node
  * @head: pointer to the head of the linked list
- * Return: head node data (n) or 0 if the linked list is empty
+ * Return: empty
  */
 int pop_listint(listint_t **head)
 {
 	listint_t *temp;
 	int n;
 
+	if (head == NULL || *head == NULL)
+		return (0);
 	temp = *head;
-
-	if (temp == NULL)
-	return (0);
-
 	*head = temp->next;
 	n = temp->n;
 	free(temp);
