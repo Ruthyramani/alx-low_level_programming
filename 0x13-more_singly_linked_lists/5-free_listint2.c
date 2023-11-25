@@ -1,9 +1,10 @@
 #include "lists.h"
-#include <stdlib>
+#include <stdlib.h>
 
 /**
  * free_listint2 - free the linked list
  * @head : pointer to list
+ *
  * Return: void
  */
 void free_listint2(listint_t **head)
@@ -13,7 +14,7 @@ void free_listint2(listint_t **head)
 	if (head == NULL)
 		return;
 
-	while (*head)
+	while (*head != NULL)
 	{
 		next = (*head)->next;
 		free(*head);
