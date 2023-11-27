@@ -7,28 +7,29 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
+	unsigned int uint, place;
+	int n;
 
-	int night = 0, j;
-	unsigned int number = 0, non_binary = 0;
-
-	if (b == NULL)
-		return (non_binary);
-
-	while (b[night] != '\0')
-		night++;
-	night -= 1;
-	j = 0;
-	while (b[j])
+	if (!b)
+		return (0);
+	for (n = 0; b[n]; n++)
+		;
+	n--;
+	for (place = 1, uint = 0; n >= 0; n--)
 	{
-		if ((b[j] != '0') && (b[j] != '1'))/*&& logical AND operator*/
-			return (non_binary);
-
-		if (b[j] == '1')
-			number += (1 * (1 << night));/*<< bitwise left shift operator*/
-		j++;
-
-		night--;
+		if (b[n] == '0')
+		{
+			place *= 2;
+			continue;
+		}
+		else if (b[n] == '1')
+		{
+			uint += place;
+			place *= 2;
+			continue;
+		}
+		return (0);
 	}
-	return (number);
+	return (uint);
 }
 
