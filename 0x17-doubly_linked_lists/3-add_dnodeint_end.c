@@ -1,24 +1,41 @@
-new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
+#include "lists.h"
+
+/**
+ * add_dnodeint_end - add a node to the end of the linked list
+ * @head: pointer to the linked list
+ * @n: value of node
+ * Return: pointer to the added node
+ */
+dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
+{
+	dlistint_t *temp;
+	dlistint_t *new;
+
+	if (!head)
 		return (NULL);
+	temp = *head;
 
+	new = malloc(sizeof(dlistint_t));
+	if (!new)
+		return (NULL);
 	new->n = n;
-	new->next = NULL;
-
-	h = *head;
-
-	if (h != NULL)
-	{
-		while (h->next != NULL)
-			h = h->next;
-		h->next = new;
-	}
-	else
+	if (!temp)
 	{
 		*head = new;
+		new->next = NULL;
+		new->prev = NULL;
+		return (new);
 	}
 
-	new->prev = h;
+	while (1)
+	{
+		if (!temp->next)
+			break;
+		temp = temp->next;
+	}
 
+	temp->next = new;
+	new->prev = temp;
+	new->next = NULL;
 	return (new);
 }
